@@ -1,0 +1,143 @@
+:root {
+	--yellow: #ffc600;
+	--black: #272727;
+
+	--padding-main: 20px;
+	--grid-gap: 20px;
+}
+
+html {
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+		Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	font-weight: 900;
+	font-size: 10px;
+	color: var(--black);
+	text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+}
+
+body {
+	background-image: linear-gradient(110deg, #f93d66, #6d47d9);
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+}
+
+button {
+	background: var(--yellow);
+	border: 0;
+	padding: 10px 20px;
+}
+
+img {
+	max-width: 100%;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(5, auto);
+}
+
+.top {
+	padding: var(--padding-main);
+	display: grid;
+	gap: var(--grid-gap);
+	grid-template-areas:
+		'header header cta1'
+		'header header cta2';
+}
+
+@media (max-width: 768px) {
+	.top {
+		grid-template-areas:
+			'header header'
+			'cta1 cta2';
+	}
+
+	.menu button {
+		display: content;
+	}
+
+	.menu ul {
+		display: none;
+	}
+}
+
+@media (max-width: 500px) {
+	.top {
+		grid-template-areas:
+			'header'
+			'cta1'
+			'cta2';
+	}
+}
+
+.hero {
+	grid-area: header;
+	color: black;
+	display: grid;
+	justify-content: start;
+	align-items: center;
+	padding: 2rem;
+	background-image: url(../images/taco.jpg);
+	background-size: cover;
+}
+
+.hero > * {
+	background-color: var(--yellow);
+}
+
+.cta {
+	background-color: var(--yellow);
+	border: 3px solid black;
+}
+
+.cta p {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+.price {
+	font-size: 5rem;
+}
+
+.cta1 {
+	grid-area: cta1;
+}
+
+.cta2 {
+	grid-area: cta2;
+}
+
+.menu button {
+	display: none;
+}
+
+.menu ul {
+	padding: var(--padding-main);
+	display: grid;
+	gap: var(--grid-gap);
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.menu li {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	font-weight: 900;
+	padding: var(--padding-main);
+	background-color: var(--yellow);
+	text-transform: uppercase;
+}
